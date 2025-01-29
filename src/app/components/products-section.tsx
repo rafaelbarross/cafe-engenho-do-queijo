@@ -8,43 +8,43 @@ import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Card,
-  CardContent,
-  CardDescription,
+  // CardContent,
+  // CardDescription,
   CardHeader,
-  CardTitle,
+  // CardTitle,
 } from "@/components/ui/card";
 
 const products = [
   {
-    title: "Café Artesanal",
-    description:
-      "Nosso café é torrado artesanalmente, garantindo um sabor único e marcante",
+    // title: "Café Artesanal",
+    // description:
+    //   "Nosso café é torrado artesanalmente, garantindo um sabor único e marcante",
     image: "/images/1.jpg",
   },
   {
-    title: "Queijos Especiais",
-    description:
-      "Variedade de queijos produzidos localmente com leite de alta qualidade",
+    // title: "Queijos Especiais",
+    // description:
+    //   "Variedade de queijos produzidos localmente com leite de alta qualidade",
     image: "/images/2.jpg",
   },
   {
-    title: "Doces Caseiros",
-    description: "Deliciosos doces feitos com receitas tradicionais da região",
+    // title: "Doces Caseiros",
+    // description: "Deliciosos doces feitos com receitas tradicionais da região",
     image: "/images/3.jpg",
   },
   {
-    title: "Doces Caseiros",
-    description: "Deliciosos doces feitos com receitas tradicionais da região",
+    // title: "Doces Caseiros",
+    // description: "Deliciosos doces feitos com receitas tradicionais da região",
     image: "/images/4.jpg",
   },
   {
-    title: "Doces Caseiros",
-    description: "Deliciosos doces feitos com receitas tradicionais da região",
+    // title: "Doces Caseiros",
+    // description: "Deliciosos doces feitos com receitas tradicionais da região",
     image: "/images/5.jpg",
   },
   {
-    title: "Doces Caseiros",
-    description: "Deliciosos doces feitos com receitas tradicionais da região",
+    // title: "Doces Caseiros",
+    // description: "Deliciosos doces feitos com receitas tradicionais da região",
     image: "/images/6.jpg",
   },
 ];
@@ -73,7 +73,7 @@ export function ProductCarousel() {
   }, [emblaApi]);
 
   return (
-    <div id="produtos" className="relative  py-16 scroll-mt-10">
+    <div id="produtos" className="relative pt-10  sm:pt-16scroll-mt-10">
       <h2 className="mb-12 text-center text-3xl font-bold">Nossos Produtos</h2>
 
       <div className="overflow-hidden px-px" ref={emblaRef}>
@@ -87,16 +87,16 @@ export function ProductCarousel() {
                 <CardHeader className="p-0 overflow-hidden">
                   <Image
                     src={product.image}
-                    alt={product.title}
+                    alt={"produtos"}
                     width={400}
                     height={300}
-                    className="h-48 w-full object-cover"
+                    className="h-96 w-full object-cover"
                   />
                 </CardHeader>
-                <CardContent className="p-6">
+                {/* <CardContent className="p-6">
                   <CardTitle className="mb-2">{product.title}</CardTitle>
                   <CardDescription>{product.description}</CardDescription>
-                </CardContent>
+                </CardContent> */}
               </Card>
             </div>
           ))}
@@ -105,14 +105,14 @@ export function ProductCarousel() {
 
       <Button
         size="icon"
-        className="absolute top-1/2  -left-4 z-10 drop-shadow-2xl"
+        className="absolute top-[55%]  -left-4 z-10 drop-shadow-2xl"
         onClick={scrollPrev}
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
       <Button
         size="icon"
-        className="absolute top-1/2  -right-4 z-10 drop-shadow-2xl"
+        className="absolute top-[55%]  -right-4 z-10 drop-shadow-2xl"
         onClick={scrollNext}
       >
         <ChevronRight className="h-4 w-4" />
