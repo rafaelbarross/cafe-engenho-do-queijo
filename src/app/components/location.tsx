@@ -3,7 +3,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export function LocationSection() {
   return (
-    <section id="localizacao" className="py-16 scroll-mt-10">
+    <section id="localizacao" className="py-10  sm:pt-16  scroll-mt-10">
       <div className="container">
         <h2 className="mb-12 text-center text-3xl font-bold">Localização</h2>
         <div className="grid gap-8 md:grid-cols-2">
