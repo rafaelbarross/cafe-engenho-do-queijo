@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, Map, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import RedeSociais from "./redes-sociais";
 import Logo from "./logo";
+import Image from "next/image";
 
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,52 +92,104 @@ export function NavBar() {
               </div>
             </header>
 
+            <div className=" relative  mx-4 mt-5 bg-muted rounded-lg overflow-hidden">
+              <Link
+                className="absolute bottom-4 right-4"
+                passHref
+                href="https://www.google.com/maps/place/Caf%C3%A9+Engenho+do+Queijo/@-9.897236,-36.450219,2221m/data=!3m1!1e3!4m6!3m5!1s0x7042f5260a2e847:0x83d30c35e193c60e!8m2!3d-9.8972357!4d-36.4502188!16s%2Fg%2F11m_z4fn05?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDEyNi4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                referrerPolicy="no-referrer"
+              >
+                <Button variant="secondary" className="rounded-full">
+                  <Map /> Ver localização
+                </Button>
+              </Link>
+              <Image
+                alt="localizacão"
+                width={400}
+                height={300}
+                src="/images/engenho.jpg"
+                className="h-36 object-cover w-full bg-center"
+              />
+            </div>
+
             <nav className="flex flex-col space-y-4 px-4 mt-5">
-              <Button className="group ">
-                Produtos
-                <ArrowRight
-                  className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
-                  size={16}
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
-                <Link href="/#produtos" onClick={() => setIsOpen(false)}></Link>
+              <div className="relative items-center flex justify-center">
+                <div className="absolute h-px bg-red-600 w-full rounded-full color" />
+
+                <h1 className="font-semibold bg-white z-10 px-5 text-amber-800">
+                  Links
+                </h1>
+              </div>
+              <Button
+                size="lg"
+                className="group "
+                onClick={() => setIsOpen(false)}
+                asChild
+              >
+                <Link href="/#produtos" className="text-red-900">
+                  {" "}
+                  <ArrowRight
+                    className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+                    size={16}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  />
+                  Produtos
+                </Link>
               </Button>
 
-              <Button className="group ">
-                Atrações
-                <ArrowRight
-                  className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
-                  size={16}
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
-                <Link href="/#atracoes" onClick={() => setIsOpen(false)}></Link>
+              <Button
+                size="lg"
+                className="group "
+                onClick={() => setIsOpen(false)}
+                asChild
+              >
+                <Link href="/#atracoes" className="text-red-900">
+                  {" "}
+                  <ArrowRight
+                    className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+                    size={16}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  />
+                  Atrações
+                </Link>
               </Button>
 
-              <Button className="group ">
-                Localização
-                <ArrowRight
-                  className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
-                  size={16}
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
-                <Link
-                  href="/#localizacao"
-                  onClick={() => setIsOpen(false)}
-                ></Link>
+              <Button
+                size="lg"
+                className="group "
+                onClick={() => setIsOpen(false)}
+                asChild
+              >
+                <Link href="/#localizacao" className="text-red-900">
+                  {" "}
+                  <ArrowRight
+                    className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+                    size={16}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  />{" "}
+                  Localização
+                </Link>
               </Button>
 
-              <Button className="group ">
-                Contatos
-                <ArrowRight
-                  className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
-                  size={16}
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
-                <Link href="/#contato" onClick={() => setIsOpen(false)}></Link>
+              <Button
+                size="lg"
+                className="group "
+                onClick={() => setIsOpen(false)}
+                asChild
+              >
+                <Link href="/#contato" className="text-red-900">
+                  <ArrowRight
+                    className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+                    size={16}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  />
+                  Contatos
+                </Link>
               </Button>
             </nav>
           </SheetContent>
