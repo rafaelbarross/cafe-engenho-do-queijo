@@ -34,7 +34,10 @@ export function LocationSection() {
                 </p>
               </div>
             </div>
-            <div id="contato" className="flex flex-col items-start gap-4">
+            <div
+              id="contato"
+              className="flex flex-col items-start gap-4 scroll-mt-20"
+            >
               <div className="flex items-start gap-4">
                 <Phone className="h-6 w-6 text-amber-600" />
                 <div>
