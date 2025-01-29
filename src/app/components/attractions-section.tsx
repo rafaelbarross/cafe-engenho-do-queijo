@@ -45,7 +45,7 @@ export function AttractionsCarousel() {
   return (
     <section
       id="atracoes"
-      className="relative mb-8 max-w-3xl 2xl:max-w-5xl mx-auto py-16 scroll-mt-10"
+      className="relative  max-w-3xl 2xl:max-w-5xl mx-auto pt-10  sm:pt-16 scroll-mt-10"
     >
       <h2 className="mb-12 text-center text-3xl font-bold">Atrações</h2>
 
@@ -55,13 +55,14 @@ export function AttractionsCarousel() {
         <div className="backface-visible touch-pan-y ml-[calc(1rem*-1)] flex">
           {attractions.map((attraction, index) => (
             <div key={index} className="relative min-w-0 pl-4 flex-[0_0_100%]">
-              <div className="overflow-hidden rounded-lg">
-                <div className="aspect-[16/9] relative">
+              <div className="overflow-hidden rounded-lg relative">
+                <div className="aspect-[16/9] ">
                   <Image
                     src={attraction.image}
                     alt={attraction.title}
-                    fill
-                    className="object-cover"
+                    width={400}
+                    height={300}
+                    className="h-[20rem] md:h-full object-cover w-full"
                   />
                   {/* Gradient overlay */}
                   {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent h-10 mt-auto" /> */}
@@ -81,14 +82,14 @@ export function AttractionsCarousel() {
 
       <Button
         size="icon"
-        className="absolute top-1/2  -left-4 z-10"
+        className="absolute top-[55%]   -left-4 z-10"
         onClick={scrollPrev}
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
       <Button
         size="icon"
-        className="absolute top-1/2  -right-4 z-10"
+        className="absolute top-[55%]   -right-4 z-10"
         onClick={scrollNext}
       >
         <ChevronRight className="h-4 w-4" />
