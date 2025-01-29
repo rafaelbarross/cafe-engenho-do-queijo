@@ -45,7 +45,7 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contato</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Telefone: (00) 1234-5678</li>
+              <li>Telefone: (82) 9634-0697</li>
               {/* <li>Email: contato@cafeengenho.com.br</li> */}
             </ul>
           </div>
