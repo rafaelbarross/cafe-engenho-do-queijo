@@ -73,7 +73,7 @@ export function ProductCarousel() {
   }, [emblaApi]);
 
   return (
-    <div id="produtos" className="relative pt-10  sm:pt-16scroll-mt-10">
+    <div id="produtos" className="relative pt-10  sm:pt-16 scroll-mt-10">
       <h2 className="mb-12 text-center text-3xl font-bold">Nossos Produtos</h2>
 
       <div className="overflow-hidden px-px" ref={emblaRef}>
