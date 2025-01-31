@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative h-[600px] w-full overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/images/engenho.jpg')",
-        }}
-      >
+    <section
+      style={{
+        backgroundImage: "url('/images/engenho.jpg')",
+      }}
+      className="relative h-[600px] w-full overflow-hidden  bg-cover bg-center bg-fixed"
+    >
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-black/50" />
       </div>
       <div className="container mx-auto relative flex h-full flex-col items-center justify-center text-center">
