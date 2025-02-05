@@ -13,7 +13,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-black/50" />
       </div>
-      <div className="container mx-auto relative flex h-full flex-col items-center justify-center text-center">
+      <div className="container mx-auto relative flex h-full flex-col items-center justify-center text-center px-4">
         <h1 className="mb-6 text-4xl font-bold text-white sm:text-6xl">
           Bem-vindo ao Café Engenho do Queijo
         </h1>

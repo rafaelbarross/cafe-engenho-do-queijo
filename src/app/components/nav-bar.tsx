@@ -18,8 +18,8 @@ export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 w-full border-b bg-white backdrop-blur px-4 lg:px-0 drop-shadow z-50">
-      <div className="container mx-auto flex h-16 items-center justify-between">
+    <header className="sticky top-0 w-full border-b bg-white backdrop-blur px-4 lg:px-0 drop-shadow !z-[9999]">
+      <div className="container mx-auto flex h-16 items-center justify-between !z-[9999]">
         <Logo />
         <nav className="hidden md:flex md:items-center md:space-x-6">
           <Button variant="ghost" asChild>
@@ -38,59 +38,48 @@ export function NavBar() {
         <div className="hidden md:block">
           <RedeSociais />
         </div>
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-10 w-10" />
-              <span className="sr-only">Toggle navigation menu</span>
+        <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild className="md:hidden !z-[9999]">
+            <Button
+              className="group"
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen((prevState) => !prevState)}
+              aria-expanded={isOpen}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              <svg
+                className="pointer-events-none"
+                width={16}
+                height={16}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 12L20 12"
+                  className="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+                />
+                <path
+                  d="M4 12H20"
+                  className="origin-center transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
+                />
+                <path
+                  d="M4 12H20"
+                  className="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+                />
+              </svg>
             </Button>
           </SheetTrigger>
           <SheetContent
-            className="h-dvh w-full p-0 [&>button]:hidden"
-            side="left"
+            className="h-dvh w-full p-0 [&>button]:hidden top-16"
+            side="bottom"
           >
             <SheetTitle className="sr-only">Menu</SheetTitle>
-
-            <header className="sticky top-0 w-full border-b bg-white backdrop-blur px-4 lg:px-0 drop-shadow z-50">
-              <div className="container mx-auto flex h-16 items-center justify-between">
-                <Logo />
-
-                <Button
-                  className="group"
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsOpen((prevState) => !prevState)}
-                  aria-expanded={isOpen}
-                  aria-label={isOpen ? "Close menu" : "Open menu"}
-                >
-                  <svg
-                    className="pointer-events-none"
-                    width={16}
-                    height={16}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 12L20 12"
-                      className="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
-                    />
-                    <path
-                      d="M4 12H20"
-                      className="origin-center transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
-                    />
-                    <path
-                      d="M4 12H20"
-                      className="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
-                    />
-                  </svg>
-                </Button>
-              </div>
-            </header>
 
             <div className=" relative  mx-4 mt-5 bg-muted rounded-lg overflow-hidden">
               <Link
@@ -127,14 +116,14 @@ export function NavBar() {
                 onClick={() => setIsOpen(false)}
                 asChild
               >
-                <Link href="/#produtos" className="text-red-900">
+                <Link href="/#produtos" className="text-red-900 font-semibold">
                   {" "}
-                  <ArrowRight
-                    className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+                  {/* <ArrowRight
+                    className="-me-1 ms-2 transition-transform group-hover:translate-x-0.5"
                     size={16}
                     strokeWidth={2}
                     aria-hidden="true"
-                  />
+                  /> */}
                   Produtos
                 </Link>
               </Button>
@@ -145,14 +134,14 @@ export function NavBar() {
                 onClick={() => setIsOpen(false)}
                 asChild
               >
-                <Link href="/#atracoes" className="text-red-900">
+                <Link href="/#atracoes" className="text-red-900 font-semibold">
                   {" "}
-                  <ArrowRight
-                    className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+                  {/* <ArrowRight
+                    className="-me-1 ms-2 transition-transform group-hover:translate-x-0.5"
                     size={16}
                     strokeWidth={2}
                     aria-hidden="true"
-                  />
+                  /> */}
                   Atrações
                 </Link>
               </Button>
@@ -163,14 +152,17 @@ export function NavBar() {
                 onClick={() => setIsOpen(false)}
                 asChild
               >
-                <Link href="/#localizacao" className="text-red-900">
+                <Link
+                  href="/#localizacao"
+                  className="text-red-900 font-semibold"
+                >
                   {" "}
-                  <ArrowRight
-                    className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+                  {/* <ArrowRight
+                    className="-me-1 ms-2 transition-transform group-hover:translate-x-0.5"
                     size={16}
                     strokeWidth={2}
                     aria-hidden="true"
-                  />{" "}
+                  />{" "} */}
                   Localização
                 </Link>
               </Button>
@@ -181,16 +173,19 @@ export function NavBar() {
                 onClick={() => setIsOpen(false)}
                 asChild
               >
-                <Link href="/#contato" className="text-red-900">
-                  <ArrowRight
-                    className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
+                <Link href="/#contato" className="text-red-900 font-semibold">
+                  {/* <ArrowRight
+                    className="-me-1 ms-2  transition-transform group-hover:translate-x-0.5"
                     size={16}
                     strokeWidth={2}
                     aria-hidden="true"
-                  />
+                  /> */}
                   Contatos
                 </Link>
               </Button>
+              <div className="mx-auto">
+                <RedeSociais />
+              </div>
             </nav>
           </SheetContent>
         </Sheet>
